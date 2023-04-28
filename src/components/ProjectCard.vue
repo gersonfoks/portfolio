@@ -3,33 +3,43 @@
 
   <div class="card equal-height">
     <div class="card-content">
-      <p class="title is-4">{{ title }}</p>
-      <div class="content">
-        <p>{{ description }}</p>
+      <p class="title is-5">{{ project.title }}</p>
+
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img :src="project.img_src" alt="Placeholder image">
+        </figure>
       </div>
+
+      <div class="content">
+        <p>{{ project.description }}</p>
+      </div>
+      <router-link :to="project.page_link">Learn more</router-link>
     </div>
   </div>
-
 </template>
 
 <script lang="ts">
+
+
+
+import {Project} from "@/data/Project";
+
 export default {
   props: {
-    title: {
-      type: String,
+    project: {
+      type: Project,
       required: true
     },
-    description: {
-      type: String,
-      required: true
-    }
   }
-};
+}
+
+
 </script>
 
 <style>
 
-.equal-height{
+.equal-height {
   display: flex;
   flex-direction: column;
   height: 100%;
