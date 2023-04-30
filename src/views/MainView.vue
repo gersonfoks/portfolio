@@ -10,7 +10,6 @@ export default {
   components: {ProjectCard, HeaderComponent},
 
 
-
   data() {
     return {
       projects: projects as Project[]
@@ -21,22 +20,17 @@ export default {
 
 <template>
   <div class="container">
-    <div class="section">
-      <HeaderComponent/>
-    </div>
     <section class="hero is-center">
       <div class="hero-body">
         <p class="title has-text-centered">
           Ai For Good Projects
         </p>
-
       </div>
     </section>
 
     <div class="section">
       <div class="columns is-multiline">
         <div class="column is-one-third" v-for="project in projects" :key="project.title">
-<!--          {{project.title}}-->
           <ProjectCard :project="project"/>
 
         </div>

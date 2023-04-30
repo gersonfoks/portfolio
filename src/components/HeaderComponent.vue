@@ -1,6 +1,6 @@
 
 <template>
-    <section class="hero ">
+    <section class="hero has-text-centered">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -17,13 +17,6 @@
 <script lang="ts">
 export default {
   name: 'HeaderComponent',
-  data() {
-    return {
-      name: 'John Doe',
-      JobTitle: 'Machine Learning Engineer',
-      ProfilePic: './place_holder.jpg',
-    };
-  },
 };
 </script>
 
