@@ -1,1 +1,0 @@
-import{_ as e,o,c as t,a as s}from"./index-575198c2.js";const n={},a=s("h1",null,"AI for elephants",-1),c=[a];function r(_,l,p,d,i,f){return o(),t("div",null,c)}const u=e(n,[["render",r]]);export{u as default};
