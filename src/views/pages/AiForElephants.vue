@@ -4,18 +4,18 @@ export default {}
 
 
 <template>
-
+  <section class="hero is-primary is-small">
+    <div class="hero-body">
+      <p class="title has-text-centered">
+        AI For Elephants
+      </p>
+    </div>
+  </section>
   <div class="container">
-    <section class="hero is-center">
-      <div class="hero-body">
-        <p class="title has-text-centered">
-          AI for Elephants
-        </p>
-      </div>
-    </section>
+
 
     <div class="columns is-centered">
-      <div class="column is-two-thirds">
+      <div class="column is-half-desktop is-two-thirds-mobile is-half-desktop">
         <section class="section">
           <p class="title is-4">
             Introduction
@@ -129,3 +129,9 @@ export default {}
 
 
 </template>
+
+<style>
+.cover {
+  object-fit: cover;
+}
+</style>

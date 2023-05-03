@@ -11,16 +11,25 @@
         </figure>
       </div>
 
-      <div class="content">
+      <div class="card-content ">
         <p>{{ project.description }}</p>
+
       </div>
-      <router-link :to="project.page_link">Learn more</router-link>
+
+
     </div>
+
+    <footer class="card-footer">
+      <div class="card-footer-item">
+        <router-link :to="project.page_link">Learn more</router-link>
+      </div>
+
+    </footer>
+
   </div>
 </template>
 
 <script lang="ts">
-
 
 
 import {Project} from "@/data/Project";
@@ -43,10 +52,13 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-
 }
 
-.card {
+.equal-height > .card-content {
+  margin-bottom: auto;
+}
+
+.equal-height > .card-footer {
   margin-top: auto;
 }
 

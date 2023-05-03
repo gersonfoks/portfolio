@@ -5,7 +5,7 @@ const projects: Project[] = [
     new Project(
         "Ai-for-Elephants: Gunshots and Elephant Rumbles Detection",
         "Using transformer models to detect gunshots and elephant rumbles in audio files.",
-        "https://picsum.photos/800",
+        "./projects/AiForElephants/main.jpg",
         "projects/ai-for-elephants"
         ),
     new Project(
