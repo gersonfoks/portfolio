@@ -4,134 +4,335 @@ export default {}
 
 
 <template>
-  <section class="hero is-primary is-small">
-    <div class="hero-body">
-      <p class="title has-text-centered">
-        AI For Elephants
-      </p>
-    </div>
-  </section>
-  <div class="container">
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+            <p class="title has-text-centered">
+                AI For Elephants
+            </p>
+        </div>
+    </section>
+    <div class="container">
+        <router-link to="/">Home</router-link>
+        <div class="columns is-centered">
+            <div class="column is-half-desktop is-two-thirds-mobile is-half-desktop content">
+                <section class="section">
+                    <p class="title is-4">
+                        Introduction
+                    </p>
+
+                    <p>
+                        In this project, our aim was to explore the effectiveness of transformer models for sound event
+                        detection
+                        (SED). Specifically, we focused on detecting two distinct sounds - gunshots and elephant rumbles
+                        - in
+                        acoustic recordings, with the goal of developing an efficient tool for monitoring elephant
+                        populations
+                        and detecting illegal activities such as poaching.
+                        As the models could potentially be used on edge, not only the accuracy but also the
+                        computational cost was important.
+
+                    </p>
+                    <p>
+                        Our work build upon <cite><a
+                            href="https://www.semanticscholar.org/paper/Automatic-Detection-for-Acoustic-Monitering-of-Wild-Selman-Demir/e99687ea54d6b49d6579cba05da01643087d1600">Automatic
+                        Detection for Acoustic Monitoring of Wild Animals</a></cite>. The authors use recurrent neural
+                        networks (RNNs) to detect elephant rumbles, and although they achieved high accuracy and f1
+                        scores, their models were computationally expensive.
+                        To improve upon their results, we used transformers, which are more efficient and
+                        have been shown to outperform RNNs in many tasks.
+                        During the 10 weeks of the challenge we showed that both the <cite><a
+                            href="https://arxiv.org/abs/2104.01778">Audio Spectogram Transfomer (AST)</a></cite> model
+                        and the <cite><a href="https://github.com/RetroCirce/HTS-Audio-Transformer">HTS-AT (Hierarchical
+                        Token-Semantic Audio Transformer) model</a></cite> have potential for further
+                        development. In particular, the AST model achieved good performance while also having a much
+                        lower computational cost.
+                    </p>
+                </section>
 
 
-    <div class="columns is-centered">
-      <div class="column is-half-desktop is-two-thirds-mobile is-half-desktop">
-        <section class="section">
-          <p class="title is-4">
-            Introduction
-          </p>
-
-          <p>
-            In this project, our aim was to explore the effectiveness of transformer models for sound event detection
-            (SED).
-            Specifically, we focused on detecting two distinct sounds - gunshots and elephant rumbles - in acoustic
-            recordings, with the goal of developing an efficient tool for monitoring elephant populations and detecting
-            illegal activities such as poaching.
-          </p>
-          <p>
-            Our work build upon previous work (insert ref). In this work mainly recurrent neural networks (RNNs) were
-            used to detect elephant rumbles. To improve upon this, we used transformers, which are more efficient and
-            have been shown to outperform RNNs in many tasks.
-            During these 10 weeks we showed that an Audio Spectogram Transfomer like model has potential for further
-            development as it achieved good performance while also having a low computational cost.
-          </p>
-        </section>
+                <section class="section">
+                    <p class="title is-4">The challenge and data</p>
+                    <p>
+                        During this challenge 4 teams focussed on detecting forest elephant rumbles on sound recordings
+                        and
+                        optimizing models such that they can work on-edge.
+                        Four teams were formed, each focusing on a specific aspect of the project. The first team worked
+                        on on-edge
+                        optimization, while the second team was responsible for building an app for researchers. The
+                        third team
+                        focused on optimizing the spectrogram conversion for the older model, and the fourth team, which
+                        I was a
+                        part of, focused on exploring new models.
+                        The data was provided by Cornell university. For this data we’ve got 65 times a 24 hours
+                        recording. Some recordings only contain elephant rumbles and some contain gunshots. In total we
+                        extracted 32.089 clips from the data each 20 seconds long. From these clips the vast majority,
+                        namely 31.126, contained rumbles while the others contained gunshots.
+                    </p>
 
 
-        <section class="section">
-          <p class="title is-4">The challenge and data</p>
-          <p>
-            During this challenge 4 teams focussed on detecting forest elephant rumbles on sound recordings and
-            optimizing models such that they can work on-edge.
-            Four teams were formed, each focusing on a specific aspect of the project. The first team worked on on-edge
-            optimization, while the second team was responsible for building an app for researchers. The third team
-            focused on optimizing the spectrogram conversion for the older model, and the fourth team, which I was a
-            part of, focused on exploring new models.
-            The data was provided by Cornell university and consisted of multiple days of recording of elephant rumbles.
-            In total we got acces to x total clips, with some clips overlapping eachother.
-            Furthermore, there where clips of gunshots. All the data was annotated and thus perfect for SED.
+                    <figure class="image">
+
+                        <div class="title is-6 has-text-centered">
+                            <p>Example Data</p>
+                        </div>
+                        <img src='/projects/AiForElephants/sed_example.png'>
+                        <figcaption class="is-size-7 has-text-centered">Example of a spectrogram, raw audio and an event
+                            matrix of
+                            an elephant rumble. Rumbles can be identified by their low frequencies.
+                        </figcaption>
+                        <div>
+
+                        </div>
+                    </figure>
+
+                </section>
 
 
-          </p>
+                <section class="section">
+                    <p class="title is-4">Approach and Model</p>
+                    <p>
+
+                        We decided to work with 20-second clips and take a random 10-second window from each clip during
+                        training.
+                        This way we could increase the amount of data we had available for training. Furthermore, it
+                        ensured that we
+                        also had negative examples, in which no or only background noise was present.
+                        For consistency we down-sampled all the clips to 4 kHz.
+
+                        For modelling we used two models - an <cite><a href="https://arxiv.org/abs/2104.01778">AST
+                        (Audio-Spectrogram Transformer) model</a></cite> and
+                        <cite><a href="https://github.com/RetroCirce/HTS-Audio-Transformer">HTS-AT (Hierarchical
+                            Token-Semantic Audio Transformer) model</a></cite>.
+                        Both models achieve very good results on <cite><a
+                            href="https://paperswithcode.com/sota/audio-classification-on-audioset">AudioSet</a></cite>
+                        which is a large dataset for audio classification.
+                        Furthermore, the previous models used are
+                        RNN-based models. Both AST and HTS-AT are transformer based, which have as an added benefit that
+                        they tend to be faster than RNN based models, making them ideal for the fast inference asked
+                        for.
+
+                        We trained the model using binary cross entropy as for each label y and each timestep we
+                        have a binary classification problem: is there an event with label y?
+
+                        Note on the models and their origins: Whereas AST is based-off <cite><a
+                            href="https://arxiv.org/abs/2010.11929">Vision Transformer</a></cite>
+                        , HTS-AT is
+                        based off <cite><a href="https://arxiv.org/abs/2103.14030">
+                        Swin Transformer
+                    </a></cite>, which is an enhancement of the ViT. To understand both models and
+                        the differences between them, it’s best to first go through the original architectures, as in
+                        essence, AST and HTS-AT are vision transformers applied to spectrograms.
+
+                        For sake of brevity we only discuss the AST-like model in detail. For more information on the
+                        HTS-AT model, please refer to the <cite><a
+                            href="https://github.com/RetroCirce/HTS-Audio-Transformer">HTS-AT github repo</a></cite>.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <p class="title is-4">Audio Spectogram Transformer</p>
+
+                    <p>
+                        For this project we adapted the AST model. The biggest change is that instead of splitting the
+                        spectogram in both the time and the frequency dimension we only split in the time dimension for
+                        easy of processing.
+                        To be concrete our AST-like model works as follows on a <i>n</i> second clip:
+                    </p>
+                    <ol>
+                        <li>
+                            Create a spectrogram from the clip
+                        </li>
+                        <li>
+                            Split the spectrogram into <i>n</i> non-overlapping parts
+                        </li>
+                        <li>
+                            For each part apply a linear projection to get <i>n</i> embeddings
+                        </li>
+                        <li>
+                            Apply self-attention to those embeddings to get <i>n</i> hidden states
+                        </li>
+                        <li>
+                            For each hidden state, project it to a vector of size 2 and apply a sigmoid to the output.
+                            This way we get for each <i>n</i> hidden states a probability for each label. Which can be
+                            interpret as the probability that such an event took place during that second
+
+                        </li>
+                    </ol>
+
+                    <p>
+                        Below you can see an overview of the model:
+                    </p>
 
 
-          <figure class="image section">
+                    <figure class="image">
 
-            <div class="title is-6 has-text-centered">
-              <p>Example Data</p>
+                        <div class="title is-6 has-text-centered">
+                            <p>AST-like model</p>
+                        </div>
+                        <img src='/projects/AiForElephants/ast_like_model.png'>
+                        <figcaption class="is-size-7 has-text-centered"> The AST model, adapted for this project. Given
+                            is an fragment of 10 seconds long. The model outputs an event matrix of 10x2, where each row
+                            represents a label (Rumble or Gunshot) and each column represents a second.
+                            The value in the matrix is the probability that an event of that label took place during
+                            that second.
+                        </figcaption>
+                        <div>
+
+                        </div>
+                    </figure>
+
+                </section>
+
+                <section class="section">
+                    <p class="title is-4">Results</p>
+                    <p>
+                        The results can be seen in the two tables below.
+                        In the first table you can see the metrics for both the gunshot and the rumbles. AST clearly
+                        outperforms HTS on the development set. In the second table you can see the scores when you
+                        limit the events to the rumbles. In this case the performance drops a bit and does not seem to
+                        outperform the previous model used.
+                    </p>
+                    <p class="title is-6 has-text-centered ">Results for both Rumbles and Gunshots</p>
+                    <table class="table is-hoverable">
+                        <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>F1</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>AST</td>
+                            <td>0.94</td>
+                            <td>0.89</td>
+                            <td>0.88</td>
+                            <td>0.90</td>
+                        </tr>
+                        <tr>
+                            <td>HTS</td>
+                            <td>0.85</td>
+                            <td>0.77</td>
+                            <td>0.75</td>
+                            <td>0.83</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="title is-6 has-text-centered ">Results for Rumbles only</p>
+                    <table class="table is-hoverable">
+                        <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>F1</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>AST</td>
+                            <td>0.84</td>
+                            <td>0.86</td>
+                            <td>0.87</td>
+                            <td>0.85</td>
+                        </tr>
+                        <tr>
+                            <td>HTS</td>
+                            <td>0.80</td>
+                            <td>0.76</td>
+                            <td>0.73</td>
+                            <td>0.83</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://www.semanticscholar.org/paper/Automatic-Detection-for-Acoustic-Monitering-of-Wild-Selman-Demir/e99687ea54d6b49d6579cba05da01643087d1600">Best
+                                    previous
+                                    RNN model(*)</a></td>
+                            <td>0.90</td>
+                            <td>0.92</td>
+                            <td>?</td>
+                            <td>?</td>
+                        </tr>
+                        </tbody>
+
+                        <caption class="is-size-7 has-text-centered caption-bottom"> (*) Results are not really
+                            comparable as the models are trained and evaluated on different datasets but they can be
+                            taken as indicative.
+                        </caption>
+                    </table>
+
+                    <p>
+                        Lastly, we want to note that the new models are very fast: they are able to process 24 hours of
+                        audio in about 20 seconds. The previous models are taking upwards of 10 minutes for the same
+                        task.
+                        This difference is mainly due to the chosen architecture. Transformer based models are able to
+                        process all the timesteps parallel while a RNN has to process the timesteps sequentially.
+                    </p>
+
+                </section>
+
+
+                <section class="section">
+                    <p class="title is-4">Future work</p>
+                    <p>
+                        During this challenge we didn't have to improve the models any further. However, there are still
+                        some things that could be improved.
+                        The following list contains some first steps that could be taken to improve the models:
+                        <ul>
+                            <li>Perform an extensive hyperparameter search as now sane default values where used</li>
+                            <li>Perform audio augmentation, such as adding noise to get more robust models or varying
+                                the lenght of the input clips
+                            </li>
+                            <li>Pretrain the models on <cite><a href="https://zenodo.org/record/4060432#.ZFfR63ZBxPY">FSD50k</a></cite>,
+                                <cite><a href="https://www.mdpi.com/1424-8220/23/4/2032">FSC22</a></cite> or <cite><a
+                                        href="https://research.google.com/audioset/">
+                                    AudioSet
+                                </a></cite>
+                            </li>
+                            <li>
+                                Use unsupervised pretraining techniques such as first training the model as an
+                                autoencoder or using tasks like <cite><a href="https://arxiv.org/pdf/1810.04805.pdf">mask
+                                prediction</a></cite> applied to spectograms.
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section class="section">
+                    <p class="title is-4">Conclusion</p>
+
+                    <p>
+                        During this challenge we have shown that Transformer based models are an interesting alternative
+                        to
+                        RNN based models for the task of Rumble detection.
+                        Our work can be used as a starting point for further research into this topic and the code is a
+                        good
+                        starting point to build upon as it contains all the code for preprocessing, training the models
+                        and
+                        is build very modular.
+                        Hopefully the results of this challenge will be used to improve the monitoring of wildlife and
+                        help
+                        to protect endangered species.
+                    </p>
+
+                </section>
+
             </div>
 
-            <img src='/projects/AiForElephants/sed_example.png'>
-            <figcaption class="is-size-7 has-text-centered">Example of a spectrogram, raw audio and an event matrix of
-              an elephant rumble. Rumbles can be identified by their low frequencies.
-            </figcaption>
-            <div>
+        </div>
 
-            </div>
-          </figure>
-
-        </section>
-
-
-        <section class="section">
-          <p class="title is-4">Approach and Model</p>
-          <p>
-
-            We decided to work with 20-second clips and take a random 10-second window from each clip during training.
-            This way we could increase the amount of data we had available for training. Furthermore, it ensured that we
-            also had negative examples, in which no or only background noise was present.
-            For consistency we down-sampled clips that were either 8 kHz or 4 kHz to 4 kHz.
-
-            Next, we utilized an advanced deep learning architecture to create our sound event detection model. First,
-            we converted the raw audio data to a mel-spectrogram with 256 mel bins. Then, we used a model that was
-            similar to the Audio Spectrogram Transformer. We treated the mel-spectrogram as an image with a single
-            channel and used 2D convolutions to extract tokens for each 1-second segment of the audio clip. We then fed
-            these tokens into a transformer for self-attention. Finally, we used 1D convolutions to extract an
-            output matrix, which we used to make predictions on the audio clip. See the figure below for a schematic
-            overview of the architecture
-
-
-          </p>
-        </section>
-
-
-        <section class="section">
-          <p class="title is-4">Results</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam assumenda consequatur, et, labore
-            minima molestias neque nobis non numquam porro quo tenetur. A accusamus dolorem ipsum iure modi molestiae,
-            officia perferendis quibusdam reprehenderit rerum saepe vero voluptas. Delectus esse maiores molestiae? A
-            alias dolorem error expedita id impedit in itaque laboriosam minima modi natus nemo nobis nulla, numquam,
-            porro quas quisquam recusandae reiciendis rem repellat! Beatae consequatur consequuntur cum deleniti
-            doloremque ducimus eum, fugiat fugit iste itaque iusto maiores minima minus nam nulla reiciendis sint soluta
-            voluptatum! Ab assumenda doloribus esse eum ipsam necessitatibus perferendis quo quod rem voluptas!</p>
-        </section>
-
-
-        <section class="section">
-          <p class="title is-4">Future work</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam assumenda consequatur, et, labore
-            minima molestias neque nobis non numquam porro quo tenetur. A accusamus dolorem ipsum iure modi molestiae,
-            officia perferendis quibusdam reprehenderit rerum saepe vero voluptas. Delectus esse maiores molestiae? A
-            alias dolorem error expedita id impedit in itaque laboriosam minima modi natus nemo nobis nulla, numquam,
-            porro quas quisquam recusandae reiciendis rem repellat! Beatae consequatur consequuntur cum deleniti
-            doloremque ducimus eum, fugiat fugit iste itaque iusto maiores minima minus nam nulla reiciendis sint soluta
-            voluptatum! Ab assumenda doloribus esse eum ipsam necessitatibus perferendis quo quod rem voluptas!
-          </p>
-        </section>
-
-      </div>
 
     </div>
-
-
-  </div>
 
 
 </template>
 
 <style>
-.cover {
-  object-fit: cover;
+
+.caption-bottom {
+    caption-side: bottom;
 }
 </style>
