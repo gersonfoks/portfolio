@@ -43,6 +43,13 @@ export default {
           Research
         </p>
       </div>
+        <p class="subtitle has-text-centered">
+            Projects
+        </p>
+
+        <a href="/research/Courcelle_s_theorem.pdf">Courcelle's Theorem</a>
+        
+        
     </section>
 
 
