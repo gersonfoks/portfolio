@@ -43,17 +43,23 @@ export default {
                     Research
                 </p>
             </div>
+
             <p class="subtitle has-text-centered">
-                Master of Logic Projects
+                Publications:
             </p>
 
+            <ul>
+                <li>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-319-71273-4_10">Have It Both Ways—From A/B Testing to A&B Testing with Exceptional Model Mining</a>:
+                    Finding subgroups while performing A/B tests.
+                </li>
+            </ul>
 
+            <p class="subtitle has-text-centered">
+                Study projects
+            </p>
 
-            <p>Below is a list of some of the projects I did together with other students. Roughly there are two main
-                fields Computational Social choice and Artificial intelligence</p>
-
-
-
+            <p>Below is a list of some of the projects I did together with other students.</p>
             <p class="title is-6 has-text-centered">
                 Artificial Intelligence
             </p>
@@ -89,19 +95,17 @@ export default {
             <ul>
 
                 <li>
-                    <a href="/research/MB_Participatory_budgeting.pdf">A Preliminary Study of Multi-Resource
-                        Participatory Budgeting</a>: Investigating the fairness and compuational properties of
+                    <a href="research/MB_Participatory_budgeting.pdf">A Preliminary Study of Multi-Resource
+                        Participatory Budgeting</a>: Investigating the fairness and computational properties of
                     multi-resource participatory budgeting.
                 </li>
                 <li>
-                    <a href="/research/Courcelle_s_theorem.pdf">Courcelle's Theorem</a>: Applying a Courcelle's theorem
-                    to computational social choice problems and argue about the limitations.
+                    <a href="research/Courcelle_s_theorem.pdf">Courcelle's Theorem</a>: Applying a Courcelle's theorem
+                    to computational social choice problems and argue about its limitations.
                 </li>
             </ul>
 
-
         </section>
-
 
         <section class="hero is-center">
             <div class="hero-body">
