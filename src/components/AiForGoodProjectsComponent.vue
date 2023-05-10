@@ -28,7 +28,7 @@ export default {
 
     <div class="section">
         <div class="columns is-multiline">
-            <div class="column is-one-third" v-for="project in projects" :key="project.title">
+            <div class="column is-half-mobile is-offset-one-quarter-mobile is-half-tablet is-one-quarter-desktop" v-for="project in projects" :key="project.title">
                 <ProjectCard :project="project"/>
 
             </div>
