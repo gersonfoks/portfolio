@@ -1,16 +1,14 @@
 <script lang="ts">
-export default {}
+import PageHeading from "@/components/pages/PageHeading.vue";
+
+export default {
+    components: {PageHeading}
+}
 </script>
 
 
 <template>
-    <section class="hero is-primary is-small">
-        <div class="hero-body">
-            <p class="title has-text-centered">
-                AI For Elephants
-            </p>
-        </div>
-    </section>
+    <PageHeading title="Ai For Elephants"/>
     <div class="container">
         <router-link to="/">Home</router-link>
         <div class="columns is-centered">
@@ -310,9 +308,7 @@ export default {}
                         RNN based models for the task of Rumble detection.
                         Our work can be used as a starting point for further research into this topic and the code is a
                         good
-                        starting point to build upon as it contains all the code for preprocessing, training the models
-                        and
-                        is build very modular.
+                        starting point to build upon as it contains all the code for preprocessing and training the models. Furhtermore, it is build very modular.
                         Hopefully the results of this challenge will be used to improve the monitoring of wildlife and
                         help
                         to protect endangered species.

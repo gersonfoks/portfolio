@@ -4,8 +4,8 @@ import ProjectCard from "@/components/ProjectCard.vue";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import projects from "@/data/AiForGoodProjects";
 import type {Project} from "@/data/Project";
-import ResearchComponent from "@/components/ResearchComponent.vue";
-import AiForGoodProjectsComponent from "@/components/AiForGoodProjectsComponent.vue";
+import ResearchComponent from "@/components/main/ResearchComponent.vue";
+import AiForGoodProjectsComponent from "@/components/main/AiForGoodProjectsComponent.vue";
 
 
 export default {

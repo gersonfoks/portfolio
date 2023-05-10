@@ -11,8 +11,8 @@ const projects: Project[] = [
     new Project(
         "AI-for-Health: Preterm Baby Development and Light Exposure",
         "Determining the effect of light exposure on preterm baby development.",
-        "./work_in_progress.png",
-        "projects/ai-for-elephants"
+        "./projects/AiForPretermBabies/preterm_baby.jpg",
+        "projects/ai-for-preterm-babies"
         ),
     new Project(
         "AI-for-Health: Heart Failures Prediction from ECG",
