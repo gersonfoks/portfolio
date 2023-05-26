@@ -27,7 +27,7 @@ export default {
     </section>
 
     <div class="section">
-        <div class="columns is-multiline">
+        <div class="columns is-multiline is-centered">
             <div class="column is-half-mobile is-offset-one-quarter-mobile is-half-tablet is-one-quarter-desktop" v-for="project in projects" :key="project.title">
                 <ProjectCard :project="project"/>
 

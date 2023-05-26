@@ -17,15 +17,16 @@ const projects: Project[] = [
     new Project(
         "AI-for-Health: Heart Failures Prediction from ECG",
         "Building a neural model that can detect indications of future heart failures from ECG scans.",
-        "./work_in_progress.png",
-        "projects/ai-for-elephants"
+        "./projects/AiForHeartFailureDetection/ecg.png",
+        "projects/ai-for-heart-failure-detection"
         ),
-    new Project(
-        "AI-against-poachers: Autonomous Flying Drones for Wildlife Protection",
-        "Exploring simulation environments for training autonomous flying drones to protect wildlife.",
-        "./work_in_progress.png",
-        "projects/ai-for-elephants"
-        )
+
+    // new Project(
+    //     "AI-against-poachers: Autonomous Flying Drones for Wildlife Protection",
+    //     "Exploring simulation environments for training autonomous flying drones to protect wildlife.",
+    //     "./work_in_progress.png",
+    //     "projects/ai-for-elephants"
+    //     )
 ]
 
 export default projects;
