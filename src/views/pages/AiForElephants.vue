@@ -303,15 +303,13 @@ export default {
                     <p class="title is-4">Conclusion</p>
 
                     <p>
-                        During this challenge we have shown that Transformer based models are an interesting alternative
-                        to
-                        RNN based models for the task of Rumble detection.
+                        During this challenge we have shown that Transformer based models are a good alternative
+                        to RNN based models for the task of Rumble detection.
                         Our work can be used as a starting point for further research into this topic and the code is a
-                        good
-                        starting point to build upon as it contains all the code for preprocessing and training the models. Furhtermore, it is build very modular.
+                        good starting point to build upon as it contains all the code for preprocessing and training the
+                        models. Furthermore, it is build very modular.
                         Hopefully the results of this challenge will be used to improve the monitoring of wildlife and
-                        help
-                        to protect endangered species.
+                        help to protect endangered species.
                     </p>
 
                 </section>

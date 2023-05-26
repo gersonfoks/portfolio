@@ -21,7 +21,7 @@ export default {
                     <p>
                         During this challenge we set out to investigate the effect of light exposure on the development
                         of
-                        preterm babies using data from the NICU of the UMC Utrecht.
+                        preterm babies using data from the neonatal intensive care unit (NICU) of the UMC Utrecht.
                         Concretely, we investigated the following research question:
                         <i>What is the effect of light exposure on the development of preterm babies?</i>
                         We found no clear relationship between the light exposure and the development of preterm babies,
@@ -57,50 +57,58 @@ export default {
                         babies.
                         For example, it is know that light exposure is important for regulating different physiological
                         processes in the body, such as the sleep-wake cycle and the production of melatonin.
-                        Furthermore, the process in which light influences these processes is well understood.
+                        Furthermore, the mechanisms in which light influences these processes is well understood.
                     </p>
                 </section>
-
-
+                
                 <section class="section">
                     <h1 class="title is-4">Data</h1>
 
                     <p>
                         The data we have access to consists of 136 patients that were in the NICU and HCU at UMC
-                        Utrecht. The data consisted of heart rate, body temperature, light and sound exposure and
+                        Utrecht.
+
+                        The data consisted of heart rate, body temperature, light and sound exposure and
                         saturation measurements as well as the weight and skull circumference of the babies. Lastly, the
-                        results from MRI scans at 40 weeks of a selected group of babies were available.
-
-                        We looked at:
-                        - Light exposure
-                        - Phototherapy
-                        - Skull size and weight
-                        - MRI scans
+                        results from MRI scans at 40 weeks of a selected group of babies were available. We looked at
+                        the light exposure, skull size, the patient's weight and measures from the MRI
+                        scans such as brain volume.
                     </p>
 
-                    <h2 class="title is-5">Quality issues</h2>
-                  <p>
-                        List quality issues
-                    </p>
-
-                    <h2 class="title is-5">Cleaning</h2>
+                    <h2 class="title is-5">Data preparation</h2>
                     <p>
-                        List quality issues and how we solved them:
-                        - Photo therapy
-                        - Not same sampling frequency
+                        Several data quality issues where found when exploring the data. First of all, the babies got
+                        light therapy for their jaundice. Due to this there where high peaks in light measurements in
+                        the initial period of the babies
+                        stay in the NICU. It is unclear however if we should remove these measurements or not as the
+                        babies wear eye patches during the light therapy.
+                        Given that most effects of the light for regulated the internal processes thought to be mediated
+                        through the eyes. We decided to remove the light measurements during the light therapy from the
+                        dataset.
 
+                        The second biggest problem we encountered was that the sampling frequency of the different
+                        measurements was not the same. Some measurements were taken every 1 minute or so, while others
+                        were taken every 2 hours.
+                        This made it difficult to compare the different measurements. To solve this problem we resampled
+                        the data to a frequency of 2 measurements per hour.
+                        Note that all these changes influences the data and may influence the outcome of the analysis.
                     </p>
 
                     <h2 class="title is-5">Feature extraction</h2>
                     <p>
-                        Feature extraction:
-                        - Mean light exposure
-                        - Variance of light exposure
-                        - Autocorrelation: 2, 4, 8
-
-
-
-                        Another thing we could have used something like fourier transformation to extract any rythmicity.
+                        One challenge was to extract features from the data that could be used in the analysis.
+                        To make sure the photo therapy did not influence the results the features were extracted after
+                        the photo therapy was finished.
+                        We used the following features:
+                        <ul>
+                            <li>Mean Light exposure</li>
+                            <li>Variance of the light exposure</li>
+                            <li>Auto-correlation of the light in time-steps of 2,4 and 8 hours to capture potential
+                                day/night cycles
+                            </li>
+                        </ul>
+                        We also were planning to look into using fourier transformation to extract any rhythmicity in
+                        the data, but due to time constraints we did not get to this.
                     </p>
 
                 </section>
@@ -108,16 +116,56 @@ export default {
 
                 <section class="section">
                     <h1 class="title is-4">Analysis</h1>
+                    During the challenge we did several analysis, but nothing lead to significant results. As an example
+                    we can look at the correlation between the light exposure and the brain volume:
 
-                    - correlation:
-                        - Problems
+                    <figure class="image">
 
-                    - regression
+
+                        <img src='/projects/AiForPretermBabies/corr.png'
+                             alt="Correlation between light exposure and brain volume"/>
+                        <figcaption class="is-size-7 has-text-centered"> Correlation between light exposure and brain
+                            volume.
+                        </figcaption>
+
+                    </figure>
+
+                    There is a small correlation between the light exposure and the brain volume.
+                    However there is more correlation between the features themselves, which makes any further analysis
+                    difficult.
+
+                    Despite that we did several analysis, nothing leading to significant results. For example. We did a
+                    linear regression on the brain volume and the light exposure.
+
+                    <figure class="image">
+
+
+                        <img src='/projects/AiForPretermBabies/ols_1.png' alt="OLS regression "/>
+                        <figcaption class="is-size-7 has-text-centered"> OLS regression on the brain volume and the
+                            light exposure. No significant results were found.
+                        </figcaption>
+
+                    </figure>
+
+                    We did not find that any of the features significantly influenced the brain volume as indicated by
+                    the high p-values.
+                    Furthermore the F-statistic was also not significant, indicating that the model as a whole was not
+                    significant.
+
+
                 </section>
 
 
                 <section class="section">
-                    <h1 class="title is-4">Conclusion and further work</h1>
+                    <h1 class="title is-4">Conclusion</h1>
+                    During this challenge we set out to investigate the effect of light exposure on the development of
+                    preterm babies using data from the neonatal intensive care unit (NICU) of the UMC Utrecht.
+                    In our analysis we did not find any significant results. However, we did find that the data quality
+                    was not optimal and several choices that we made could influence the outcome of the analysis such as
+                    removing the light therapy from the data. Therefore, we cannot conclude that there is no effect of
+                    light exposure on the development of preterm babies.
+                    Overall, it was a very interesting challenge and I learned a about working with medical data and the
+                    unique challenges that this kind of data brings along with it.
                 </section>
 
 
@@ -131,7 +179,4 @@ export default {
 
 <style>
 
-.caption-bottom {
-    caption-side: bottom;
-}
 </style>
