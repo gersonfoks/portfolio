@@ -3,7 +3,7 @@
         <div class="navbar-brand">
 
             <router-link to="/" class="navbar-item">
-                <img src="g_logo.png">
+                <img src="/g_logo.png">
             </router-link>
 
         </div>
