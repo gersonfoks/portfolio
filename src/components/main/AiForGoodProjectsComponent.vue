@@ -23,6 +23,10 @@ export default {
             <p class="title has-text-centered">
                 Ai For Good Projects
             </p>
+
+            <p class="has-text-centered">
+                Applying my programming and machine learning skills to help solve problems in the world.
+            </p>
         </div>
     </section>
 

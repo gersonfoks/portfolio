@@ -6,10 +6,11 @@ import projects from "@/data/AiForGoodProjects";
 import type {Project} from "@/data/Project";
 import ResearchComponent from "@/components/main/ResearchComponent.vue";
 import AiForGoodProjectsComponent from "@/components/main/AiForGoodProjectsComponent.vue";
+import AboutComponent from "@/components/main/AboutComponent.vue";
 
 
 export default {
-    components: {AiForGoodProjectsComponent, ResearchComponent},
+    components: {AboutComponent, AiForGoodProjectsComponent, ResearchComponent},
 
 
     data() {
@@ -22,19 +23,8 @@ export default {
 
 <template>
     <div class="container">
+        <AboutComponent/>
         <AiForGoodProjectsComponent/>
-
         <ResearchComponent/>
-        <section class="hero is-center">
-            <div class="hero-body">
-                <p class="title has-text-centered">
-                    Miscellaneous
-                </p>
-            </div>
-        </section>
-
-
-
-
     </div>
 </template>
