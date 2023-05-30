@@ -22,9 +22,11 @@ export default {
 </script>
 
 <template>
+    <AboutComponent class="has-background-light"/>
+
+    <AiForGoodProjectsComponent/>
+    <ResearchComponent class="has-background-light"/>
     <div class="container">
-        <AboutComponent/>
-        <AiForGoodProjectsComponent/>
-        <ResearchComponent/>
+
     </div>
 </template>

@@ -10,7 +10,7 @@ export default {
 <template>
     <PageHeading title="Ai For Elephants"/>
     <div class="container">
-        <router-link to="/">Home</router-link>
+
         <div class="columns is-centered">
             <div class="column is-half-desktop is-two-thirds-mobile is-half-desktop content">
                 <section class="section">
