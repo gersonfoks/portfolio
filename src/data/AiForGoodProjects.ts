@@ -3,7 +3,7 @@ import {Project} from "@/data/Project";
 
 const projects: Project[] = [
     new Project(
-        "Ai-for-Elephants: Gunshots and Elephant Rumbles Detection",
+        "AI-for-Elephants: Gunshots and Elephant Rumbles Detection",
         "Using transformer models to detect gunshots and elephant rumbles in audio files.",
         "./projects/AiForElephants/main.jpg",
         "projects/ai-for-elephants"

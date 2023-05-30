@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar is-transparent">
+    <nav class="navbar is-transparent has-background-light">
         <div class="navbar-brand">
 
             <router-link to="/" class="navbar-item">

@@ -25,7 +25,7 @@ export default {
             </p>
 
             <p class="has-text-centered">
-                Applying my programming and machine learning skills to help solve problems in the world.
+                Applying my programming and machine learning skills to help solve problems in the world
             </p>
         </div>
     </section>
