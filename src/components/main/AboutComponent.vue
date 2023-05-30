@@ -8,7 +8,7 @@
                         <h1 class="title">
                             About
                         </h1>
-                        <p class="has-text-centered ">
+                        <p class="has-text-centered">
                             I am a software engineer with a passion for machine learning and artificial intelligence.
                             I've worked on a variety of projects, ranging from web development to machine learning. I am
                             always
@@ -22,6 +22,7 @@
 
     </section>
 </template>
+
 
 <script lang="ts">
 export default {
