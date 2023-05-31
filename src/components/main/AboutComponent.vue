@@ -18,6 +18,26 @@
                                     looking for new challenges and opportunities to learn.
                                 </p>
 
+                                <div class="content">
+                                    <p>
+                                        <ul>
+                                            <li>
+                                                <a href="https://github.com/gersonfoks">Github</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.linkedin.com/in/gerson-foks-50b784b2/">LinkedIn</a>
+                                            </li>
+                                            <li>
+                                                <a href="./C_V_.pdf">Curriculum Vitae</a>
+                                            </li>
+
+
+                                        </ul>
+
+                                    </p>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -26,7 +46,6 @@
                         <figure class="image is-two-thirds">
 
                             <img src='https://fastly.picsum.photos/id/29/4000/2670.jpg?hmac=rCbRAl24FzrSzwlR5tL-Aqzyu5tX_PA95VJtnUXegGU'>
-
 
                         </figure>
                     </div>

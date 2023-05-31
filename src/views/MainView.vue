@@ -7,10 +7,11 @@ import type {Project} from "@/data/Project";
 import ResearchComponent from "@/components/main/ResearchComponent.vue";
 import AiForGoodProjectsComponent from "@/components/main/AiForGoodProjectsComponent.vue";
 import AboutComponent from "@/components/main/AboutComponent.vue";
+import SideProjectsComponent from "@/components/main/SideProjects.vue";
 
 
 export default {
-    components: {AboutComponent, AiForGoodProjectsComponent, ResearchComponent},
+    components: {SideProjectsComponent, AboutComponent, AiForGoodProjectsComponent, ResearchComponent},
 
 
     data() {
@@ -26,17 +27,17 @@ export default {
     <div id="about">
         <AboutComponent class="has-background-light"/>
     </div>
-
-
     <div id="ai-for-good-projects">
     <AiForGoodProjectsComponent />
     </div>
+    <div id="side-projects">
+        <SideProjectsComponent class="has-background-light"/>
+    </div>
+
 
     <div id="research">
-        <ResearchComponent class="has-background-light"/>
+        <ResearchComponent />
     </div>
 
-    <div class="container">
 
-    </div>
 </template>
