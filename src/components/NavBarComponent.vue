@@ -26,6 +26,9 @@
                     <a class="button is-secondary" @click="(event) => scrollTo('ai-for-good-projects')">
                        AI-for-good-projects
                     </a>
+                    <a class="button is-secondary" @click="(event) => scrollTo('side-projects')">
+                        Side-Projects
+                    </a>
                     <a class="button is-secondary" @click="(event) => scrollTo('research')">
                         Research
                     </a>

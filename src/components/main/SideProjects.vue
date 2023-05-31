@@ -13,24 +13,11 @@
 
         <section>
             <div class="container pl-6 pr-6 pb-6">
-
-                <div class="columns is-multiline">
-                    <div class="column is-half">
-                        <side-project-card></side-project-card>
+                <div class="columns is-multiline is-centered">
+                    <div class="column is-two-thirds"
+                         v-for="(project, index) in sideProjects" :key="project.title">
+                        <SideProjectCard :project="project" :reversed="index % 2 === 1"/>
                     </div>
-
-                    <div class="column is-half">
-                        <side-project-card></side-project-card>
-                    </div>
-
-                    <div class="column is-half">
-                        <side-project-card></side-project-card>
-                    </div>
-
-                    <div class="column is-half">
-                        <side-project-card></side-project-card>
-                    </div>
-
 
                 </div>
 
@@ -48,10 +35,19 @@
 
 <script lang="ts">
 import SideProjectCard from "@/components/SideProjectCard.vue";
+import ProjectCard from "@/components/ProjectCard.vue";
+import sideProjects from "@/data/SideProjects";
+
+import type {SideProject} from "@/data/SideProject";
 
 export default {
     name: 'SideProjectsComponent',
-    components: {SideProjectCard},
+    data() {
+        return {
+            sideProjects: sideProjects as SideProject[]
+        };
+    },
+    components: {ProjectCard, SideProjectCard},
 };
 </script>
 
