@@ -16,12 +16,37 @@
             </div>
 
         </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-secondary" @click="(event) => scrollTo('about')">
+                        About
+                    </a>
+                    <a class="button is-secondary" @click="(event) => scrollTo('ai-for-good-projects')">
+                       AI-for-good-projects
+                    </a>
+                    <a class="button is-secondary" @click="(event) => scrollTo('research')">
+                        Research
+                    </a>
+                </div>
+            </div>
+        </div>
     </nav>
 </template>
 
 <script lang="ts">
 export default {
     name: 'NavBarComponent',
+
+    methods: {
+
+        scrollTo(elementId: string){
+            const element = document.getElementById(elementId);
+            element?.scrollIntoView({behavior: "smooth", });
+        }
+
+    }
 };
 </script>
 
