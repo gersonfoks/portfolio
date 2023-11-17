@@ -3,6 +3,13 @@ import {Project} from "@/data/Project";
 
 const projects: Project[] = [
     new Project(
+        "AI-against-toxic-clouds: Detecting Toxic Clouds",
+        "Building a toxic cloud detection model for Greenpeace and Frissewind",
+        "./projects/AiAgainstToxicClouds/toxic_clouds.jpg",
+        "projects/ai-against-toxic-clouds"
+        ),
+
+    new Project(
         "AI-for-Elephants: Gunshots and Elephant Rumbles Detection",
         "Using transformer models to detect gunshots and elephant rumbles in audio files.",
         "./projects/AiForElephants/main.jpg",

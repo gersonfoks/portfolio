@@ -5,9 +5,9 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 </script>
 
 <template>
-    <nav-bar-component/>
+  <nav-bar-component :show-end="$router.currentRoute.value.name === 'home'" />
   <div class="section">
-    <HeaderComponent/>
+    <HeaderComponent />
   </div>
   <RouterView />
 </template>

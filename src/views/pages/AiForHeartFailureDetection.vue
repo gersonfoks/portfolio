@@ -212,9 +212,8 @@ export default {
                         In this project we set out to predict the NT-proBNP values from ECG signals.
                         We found that it is possible to predict the NT-proBNP values from ECG signals with a high
                         accuracy. Furthermore we found that the model is able to capture the relation between the ECG
-                        signals and the NT-proBNP values. Lastly we found that the model is able to predict the
-                        NT-proBNP values with a high accuracy. However, the model has a high false negative rate.
-                        This can be solved by using an ensemble and taking the uncertainty into account, which could
+                        signals and the NT-proBNP values. However, the model has a high false negative rate.
+                        This can be partially fixed by using an ensemble and taking the uncertainty into account, which ultimatelly could
                         help the clinician with decision making.
                     </p>
 

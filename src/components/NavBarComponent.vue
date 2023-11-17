@@ -17,14 +17,15 @@
 
         </div>
 
-        <div class="navbar-end">
+
+        <div  class="navbar-end"  v-if="showEnd">
             <div class="navbar-item">
                 <div class="buttons">
                     <a class="button is-secondary" @click="(event) => scrollTo('about')">
                         About
                     </a>
                     <a class="button is-secondary" @click="(event) => scrollTo('ai-for-good-projects')">
-                       AI-for-good-projects
+                        AI-for-good-projects
                     </a>
                     <a class="button is-secondary" @click="(event) => scrollTo('side-projects')">
                         Side-Projects
@@ -42,11 +43,19 @@
 export default {
     name: 'NavBarComponent',
 
+    props: {
+        showEnd: {
+            type: Boolean,
+            default: true,
+
+        },
+    },
+
     methods: {
 
-        scrollTo(elementId: string){
+        scrollTo(elementId: string) {
             const element = document.getElementById(elementId);
-            element?.scrollIntoView({behavior: "smooth", });
+            element?.scrollIntoView({ behavior: "smooth", });
         }
 
     }

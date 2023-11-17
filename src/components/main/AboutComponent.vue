@@ -45,7 +45,7 @@
                     <div class="column is-half">
                         <figure class="image is-two-thirds">
 
-                            <img src='https://fastly.picsum.photos/id/29/4000/2670.jpg?hmac=rCbRAl24FzrSzwlR5tL-Aqzyu5tX_PA95VJtnUXegGU'>
+                            <img :src="'./abstract_city_wide.png'">
 
                         </figure>
                     </div>
