@@ -81,7 +81,7 @@ export default {
                     </p>
 
                     <figure class="image">
-                        <iframe src="/projects/AiAgainstToxicClouds/example.mp4" autoplay loop></iframe>
+                        <iframe src="/projects/AiAgainstToxicClouds/example.mp4" type="video/mp4"></iframe>
                         <figcaption>Example of toxic smoke</figcaption>
                     </figure>
 
@@ -177,7 +177,7 @@ export default {
 
 
                     <figure class="image">
-                        <iframe src="/projects/AiAgainstToxicClouds/cloudy_example.mp4" autoplay loop></iframe>
+                        <iframe src="/projects/AiAgainstToxicClouds/cloudy_example.mp4" type="video/mp4"></iframe>
                         <figcaption>Example of cloudy weather</figcaption>
                     </figure>
 
