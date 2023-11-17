@@ -198,7 +198,7 @@ export default {
 
                     <div class="has-text-centered">
                         <figure class="image is-256x256 mr-auto ml-auto">
-                            <image src="/projects/AiAgainstToxicClouds/cloudy_example.png"></image>
+                            <img src="/projects/AiAgainstToxicClouds/cloudy_example.png">
                             <figcaption>Example of cloudy weather</figcaption>
                         </figure>
 
