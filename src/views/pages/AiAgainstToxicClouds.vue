@@ -177,7 +177,7 @@ export default {
 
 
                     <figure class="image">
-                        <iframe src="/projects/AiAgainstToxicClouds/cloudy_example.mp4" type="video/mp4"></iframe>
+                        <image src="/projects/AiAgainstToxicClouds/cloudy_example.gif"></image>
                         <figcaption>Example of cloudy weather</figcaption>
                     </figure>
 
