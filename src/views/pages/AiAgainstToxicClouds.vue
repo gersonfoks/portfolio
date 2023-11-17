@@ -24,11 +24,14 @@ export default {
                         To detect toxic clouds we zoomed in on regions of interest in the video where it was most likely
                         that toxic smoke was emitted.
                         To classify the videos in containing toxic smoke and not containing toxic smoke multiple instance
-                        learning was used (insert ref).
-                        On the training data we where able to achieve a recall of around 95% but only a precision of 46%.
-                        Unfortunately, the model did not generalize well to do inference on the live stream as there was a
+                        learning was used.
+                        On the test data from the live stream we where able to achieve a recall of around 95% but only a
+                        precision of 46%.
+                        This indicates that the model did not generalize well to do inference on the live stream as there
+                        was a
                         shift in distribution which lead to a lot of false positives.
-                        Currently, new data directly from the live stream is being gathered to improve the model.
+                        Currently, the model is being to deployed and new data directly from the live stream is being
+                        gathered to improve the model.
                     </p>
 
 
@@ -80,12 +83,30 @@ export default {
                         This data contained 312 videos of which only 42 contains toxic clouds.
                     </p>
 
-                    <figure class="image">
-                        <iframe src="/projects/AiAgainstToxicClouds/example.mp4" type="video/mp4"></iframe>
-                        <figcaption>Example of toxic smoke</figcaption>
-                    </figure>
+                    <div>
+                        <h5 class="has-text-centered">Example of toxic clouds</h5>
+                        <div class="columns is-centered pt-5">
+                            <div class="column pr-0 pl-0">
+                                <figure class="image is-256x256 m-0">
+                                    <img src="/projects/AiAgainstToxicClouds/kooksfabriek_1.png">
 
+                                </figure>
+                            </div>
+                            <div class="column pr-0 pl-0">
+                                <figure class="image is-256x256 m-0">
+                                    <img src="/projects/AiAgainstToxicClouds/kooksfabriek_2.png">
 
+                                </figure>
+                            </div>
+                            <div class="column pr-0 pl-0">
+                                <figure class="image is-256x256 m-0">
+                                    <img src="/projects/AiAgainstToxicClouds/hoogoven.png">
+
+                                </figure>
+                            </div>
+
+                        </div>
+                    </div>
 
 
 
@@ -175,11 +196,13 @@ export default {
 
                     </p>
 
+                    <div class="has-text-centered">
+                        <figure class="image is-256x256 mr-auto ml-auto">
+                            <image src="/projects/AiAgainstToxicClouds/cloudy_example.png"></image>
+                            <figcaption>Example of cloudy weather</figcaption>
+                        </figure>
 
-                    <figure class="image">
-                        <image src="/projects/AiAgainstToxicClouds/cloudy_example.gif"></image>
-                        <figcaption>Example of cloudy weather</figcaption>
-                    </figure>
+                    </div>
 
 
 
@@ -223,4 +246,8 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style>
+.is-256x256 {
+    width: 256px;
+    height: 256px;
+}</style>
